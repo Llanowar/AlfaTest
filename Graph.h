@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include <boost/graph/graph_traits.hpp>
@@ -93,16 +94,6 @@ namespace AlfaTest {
                     boost::make_iterator_property_map(p.begin(), get(boost::vertex_index, g))
                 )
             );
-
-#ifndef NDEBUG
-            std::cout << "Parents:" << std::endl;
-            vertex_iterator vi2, vend2;
-            for (boost::tie(vi2, vend2) = vertices(g); vi2 != vend2; ++vi2) {
-                std::cout << "the parent for [" << boost::get(name_property, *vi2) << " is [" <<
-                boost::get(name_property, p[*vi2]) << "]" << std::endl;
-            }
-            std::cout << std::endl;
-#endif
 
             std::vector <std::string> result;
             vertex_iterator current = firstVertexIterator;
